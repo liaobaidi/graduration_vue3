@@ -1,9 +1,9 @@
 <template>
 	<div class="menu-container h-1/1">
 		<el-menu :collapse="isCollapse" class="el-menu-vertical-demo">
-			<div class="title text-white font-700 flex items-center justify-center ellipsis1">
-				<el-icon class="mr-2"><document /></el-icon>
-				<span v-if="!isCollapse">{{ sys_title }}</span>
+			<div class="p-4 text-white font-700 ellipsis1 text-center">
+				<el-icon><document /></el-icon>
+				<span class="ml-2" v-if="!isCollapse">{{ sys_title }}</span>
 			</div>
 			<el-sub-menu index="1">
 				<template #title>
@@ -47,11 +47,5 @@ let sys_title = import.meta.env.VITE_APP_SYS_TITLE
 <style scoped lang="scss">
 .menu-container {
 	background-color: #001529;
-  .title {
-    height: 2.0833vw;
-    line-height: 2.0833vw;
-    text-align: center;
-    vertical-align: middle;
-  }
 }
 </style>
