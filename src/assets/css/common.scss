@@ -1,7 +1,41 @@
 $colorDefault: #222;
-$fontSizeDefault: .9375vw;
+$fontSizeDefault: 0.9375vw;
 
-html, body {
-  font-size: $fontSizeDefault;
-  color: $colorDefault;
+html,
+body {
+	font-size: $fontSizeDefault;
+	color: $colorDefault;
+	background-color: #f0f2f5;
+}
+:root {
+	--el-aside-width: 10.4167vw; // 侧边菜单宽度
+	--el-menu-text-color: #efefef;
+}
+.ellipsis1 {
+	overflow: hidden;
+	text-overflow: ellipsis;
+	display: -webkit-box;
+	-webkit-box-orient: vertical;
+	-webkit-line-clamp: 1;
+}
+.ellipsis2 {
+	overflow: hidden;
+	text-overflow: ellipsis;
+	display: -webkit-box;
+	-webkit-box-orient: vertical;
+	-webkit-line-clamp: 2;
+}
+.ellipsis3 {
+	overflow: hidden;
+	text-overflow: ellipsis;
+	display: -webkit-box;
+	-webkit-box-orient: vertical;
+	-webkit-line-clamp: 3;
+}
+.ellipsis4 {
+	overflow: hidden;
+	text-overflow: ellipsis;
+	display: -webkit-box;
+	-webkit-box-orient: vertical;
+	-webkit-line-clamp: 4;
 }
