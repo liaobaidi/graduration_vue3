@@ -12,10 +12,13 @@
     "@element-plus/icons-vue": "^2.0.10",
     "axios": "^1.2.0",
     "element-plus": "^2.2.26",
+    "js-cookie": "^3.0.1",
     "vue": "^3.2.41",
-    "vue-router": "^4.1.6"
+    "vue-router": "^4.1.6",
+    "vuex": "^4.1.0"
   },
   "devDependencies": {
+    "@types/js-cookie": "^3.0.2",
     "@types/node": "^18.11.10",
     "@vitejs/plugin-vue": "^3.2.0",
     "autoprefixer": "^10.4.13",

@@ -17,6 +17,11 @@
 </template>
 <script lang="ts" setup>
 import { ref } from 'vue'
+import { userList } from '/@/api/user'
+
+userList({ page: 3, pageSize: 20 }).then((res) => {
+	console.log(res)
+})
 
 let isCollapse = ref(false)
 
@@ -34,6 +39,6 @@ const navCollapse = (e: boolean) => (isCollapse.value = e)
 	padding: 0;
 }
 :deep(.el-aside) {
-  width: unset;
+	width: unset;
 }
 </style>

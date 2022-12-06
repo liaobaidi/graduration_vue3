@@ -1,9 +1,11 @@
 <template>
 	<div class="menu-container h-1/1">
 		<el-menu :collapse="isCollapse" class="el-menu-vertical-demo">
-			<div class="p-4 text-white font-700 ellipsis1 text-center">
-				<el-icon><document /></el-icon>
-				<span class="ml-2" v-if="!isCollapse">{{ sys_title }}</span>
+			<div class="p-4 text-white font-700 ellipsis1 text-center flex items-center justify-center">
+				<el-icon size="26">
+          <img src="/icon.svg" alt="">
+        </el-icon>
+				<span class="ml-2 ellipsis1" v-if="!isCollapse">{{ sys_title }}</span>
 			</div>
 			<el-sub-menu index="1">
 				<template #title>
