@@ -1,5 +1,5 @@
 <template>
-	<div class="login-container flex">
+	<div class="login-container flex bg-white">
 		<div class="w-3/5 h-1/1 left-part flex flex-col justify-center items-center">
 			<div class="flex items-center">
 				<el-icon size="56">
@@ -9,10 +9,13 @@
 			</div>
 			<img class="w-1/2 h-3/5" src="../../static/images/logo.svg" alt="" />
 		</div>
-		<div class="w-2/5 h-1/1"></div>
+		<div class="w-2/5 h-1/1 flex justify-start items-center ml-20">
+			<LoginForm />
+		</div>
 	</div>
 </template>
 <script lang="ts" setup>
+import LoginForm from './component/LoginForm.vue'
 let sys_title = import.meta.env.VITE_APP_SYS_TITLE
 </script>
 
@@ -24,9 +27,9 @@ let sys_title = import.meta.env.VITE_APP_SYS_TITLE
 	.left-part {
 		background: url('/@/static/images/login-bg.svg') no-repeat center right;
 		background-size: cover;
-    .title {
-      font-size: 1.875vw;
-    }
+		.title {
+			font-size: 1.875vw;
+		}
 	}
 }
 </style>

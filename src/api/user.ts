@@ -1,7 +1,8 @@
 import request from '/@/utils/request'
 
 enum Api {
-	login = '/user/login',
+	login = '/sys/login',
+	logout = '/sys/logout',
 	list = '/user/list'
 }
 /**
@@ -18,4 +19,11 @@ export const userList = (params: any) => {
  */
 export const user_login = (params: any) => {
 	return request.post(Api.login, params)
+}
+/**
+ * 登出
+ * @returns 
+ */
+export const user_logout = () => {
+	return request.post(Api.logout)
 }

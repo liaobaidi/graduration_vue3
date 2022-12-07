@@ -27,7 +27,21 @@ export const expandRoutes: ExpandRoute = {
 			component: () => import('/@/views/Login/index.vue')
 		}
 	],
-	admin: [],
-	teacher: [],
+	admin: [
+		{
+			path: 'test',
+			name: 'test',
+			component: () => import('/@/views/404/index.vue'),
+			children: [{ path: 'test', name: 'test', component: () => import('/@/views/404/index.vue') }]
+		}
+	],
+	teacher: [
+    {
+			path: 'test2',
+			name: 'test2',
+			component: () => import('/@/views/404/index.vue'),
+			children: [{ path: 'test2', name: 'test2', component: () => import('/@/views/404/index.vue') }]
+		}
+  ],
 	student: []
 }

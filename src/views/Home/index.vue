@@ -17,11 +17,6 @@
 </template>
 <script lang="ts" setup>
 import { ref } from 'vue'
-import { userList } from '/@/api/user'
-
-userList({ page: 3, pageSize: 20 }).then((res) => {
-	console.log(res)
-})
 
 let isCollapse = ref(false)
 
