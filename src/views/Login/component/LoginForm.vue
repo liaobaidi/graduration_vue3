@@ -93,4 +93,7 @@ onMounted(() => {
 		transform: rotate(45deg) scaleY(1);
 	}
 }
+:deep(.el-input__inner) {
+	font-size: .8333vw;
+}
 </style>

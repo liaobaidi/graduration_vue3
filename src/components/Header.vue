@@ -39,9 +39,9 @@ let user = JSON.parse(localStorage.getItem('userinfo')!).username
 const breadcrumb: string[] = reactive([])
 const breadPath: RouteLocationMatched[] = reactive([])
 
-watchEffect(() => {
+watchEffect(() => {	
 	breadcrumb.length = 0
-	breadcrumb.push(...route.fullPath.split('/'))
+	breadcrumb.push(...route.meta.name.split('/'))
 	breadcrumb.shift()
   breadPath.length = 0
   breadPath.push(...route.matched)
