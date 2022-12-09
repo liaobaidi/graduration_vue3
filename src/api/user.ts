@@ -3,7 +3,8 @@ import request from '/@/utils/request'
 enum Api {
 	login = '/sys/login',
 	logout = '/sys/logout',
-	list = '/user/list'
+	list = '/user/list',
+	update = '/sys/update'
 }
 /**
  * 用户列表
@@ -22,8 +23,16 @@ export const user_login = (params: any) => {
 }
 /**
  * 登出
- * @returns 
+ * @returns
  */
 export const user_logout = () => {
 	return request.post(Api.logout)
+}
+/**
+ * 修改密码
+ * @param params
+ * @returns
+ */
+export const user_update = (params: any) => {
+	return request.post(Api.update, params)
 }
