@@ -6,7 +6,7 @@
 			</el-aside>
 			<el-container>
 				<el-header>
-					<Header @collapse="navCollapse" />
+					<Header @collapse="navCollapse" @lang="lang" />
 				</el-header>
 				<el-main>
 					<RouterView />
@@ -16,11 +16,16 @@
 	</div>
 </template>
 <script lang="ts" setup>
-import { ref } from 'vue'
+import { ref, defineEmits } from 'vue'
 
+const emit = defineEmits(['lang'])
 let isCollapse = ref(false)
 
 const navCollapse = (e: boolean) => (isCollapse.value = e)
+
+const lang = (e: string) => {
+	emit('lang', e)
+}
 </script>
 <style scoped lang="scss">
 .common-layout {

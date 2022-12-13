@@ -11,10 +11,19 @@
 		</div>
 		<div class="flex items-center">
 			<div class="cursor-pointer mr-2 flex items-center" @click="reload">
-				<el-icon size="24"><RefreshLeft /></el-icon>
+				<el-tooltip content="刷新页面" placement="bottom">
+					<el-icon size="24"><RefreshLeft /></el-icon>
+				</el-tooltip>
 			</div>
-			<div class="cursor-pointer mr-4 flex items-center" @click="fullScreen">
-				<el-icon size="24"><FullScreen /></el-icon>
+			<div class="cursor-pointer mr-2 flex items-center" @click="fullScreen">
+				<el-tooltip :content="isFullScreen ? '关闭全屏' : '打开全屏'" placement="bottom">
+					<el-icon size="24"><FullScreen /></el-icon>
+				</el-tooltip>
+			</div>
+			<div class="cursor-pointer mr-4 flex items-center" @click="toggle">
+				<el-tooltip :content="language === 'zh-cn' ? '切为英文' : '切为中文'" placement="bottom">
+					<el-icon size="24"><Switch /></el-icon>
+				</el-tooltip>
 			</div>
 			<div class="user flex items-center mr-4">
 				<span class="mr-2">{{ greet }}</span>
@@ -53,7 +62,7 @@
 	</el-dialog>
 </template>
 <script lang="ts" setup>
-import { ref, defineEmits, onMounted, watchEffect, reactive } from 'vue'
+import { ref, defineEmits, onMounted, watchEffect, reactive, computed } from 'vue'
 import { useRoute, RouteLocationMatched } from 'vue-router'
 import { useStore } from 'vuex'
 import { user_update } from '/@/api/user'
@@ -61,7 +70,7 @@ import { user_update } from '/@/api/user'
 const route = useRoute()
 const store = useStore()
 let isCollapse = ref(false)
-const emit = defineEmits(['collapse'])
+const emit = defineEmits(['collapse', 'lang'])
 let isFullScreen = ref(false)
 let greet = ref('')
 let user = JSON.parse(localStorage.getItem('userinfo')!).username
@@ -77,13 +86,19 @@ const formRules = {
 	newPsw: [{ validator: checkPass2, trigger: 'blur' }]
 }
 let form = ref()
+const language = ref('zh-cn')
+
+const toggle = () => {
+	language.value = language.value === 'zh-cn' ? 'en' : 'zh-cn'
+	emit('lang', language.value)
+}
 
 async function update() {
 	const permission = await form.value.validate()
-	if(!permission) return
+	if (!permission) return
 	const postData = formData
 	user_update(postData).then((res) => {
-		if(res) {
+		if (res) {
 			update_status.value = false
 			store.dispatch('logout')
 		}
