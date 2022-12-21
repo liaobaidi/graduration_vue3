@@ -32,6 +32,7 @@ let sys_title = import.meta.env.VITE_APP_SYS_TITLE
 let identity = JSON.parse(localStorage.getItem('userinfo')!).identity
 console.log(identity, 'identity')
 
+
 </script>
 
 <style scoped lang="scss">

@@ -9,6 +9,16 @@ export default {
 					name: '首页'
 				}
 			]
+		},
+		{
+			path: '/home/usermanage',
+			name: '用户管理',
+			children: [
+				{
+					path: '/home/usermanage/userlist',
+					name: '用户列表'
+				}
+			]
 		}
 	]
 }
