@@ -22,18 +22,76 @@
         :label="item.label"
         :align="item.align"
       />
+      <template #tableTitle>
+        <div class="flex items-center w-1/4 mr-2">
+          <div class="w-1/2">工号/学号：</div>
+          <el-input v-model="account" placeholder="请输入工号或学号" @keyup.enter="getList" />
+        </div>
+        <div class="flex items-center w-1/6 mr-2">
+          <div class="w-1/2">身份：</div>
+          <el-select v-model="identity" placeholder="请选择用户身份" @change="getList">
+            <el-option value="admin" label="管理员" />
+            <el-option value="teacher" label="教师" />
+            <el-option value="student" label="学生" />
+            <el-option value="" label="全部" />
+          </el-select>
+        </div>
+        <div class="flex items-center w-1/6">
+          <el-button type="primary" :icon="Plus" @click="dialogVisible = true">添加用户</el-button>
+          <el-button type="primary" :icon="Download" @click="exportList">导出</el-button>
+          <el-button type="primary" :icon="Upload">导入</el-button>
+        </div>
+      </template>
     </BasicTable>
     <!-- <el-pagination :total="total"></el-pagination> -->
   </div>
+  <el-dialog v-model="dialogVisible" title="添加用户" width="30%">
+    <el-form
+      ref="myForm"
+      :rules="rules"
+      label-position="right"
+      label-width="100px"
+      :model="formData"
+      style="max-width: 460px"
+    >
+      <el-form-item label="学号/工号" prop="account">
+        <el-input v-model="formData.account" />
+      </el-form-item>
+      <el-form-item label="用户名" prop="username">
+        <el-input v-model="formData.username" />
+      </el-form-item>
+      <el-form-item label="用户身份" prop="identity">
+        <el-select v-model="formData.identity" placeholder="请选择用户身份">
+          <el-option value="admin" label="管理员" />
+          <el-option value="teacher" label="教师" />
+          <el-option value="student" label="学生" />
+        </el-select>
+      </el-form-item>
+      <el-form-item label="班级" v-show="formData.identity === 'student'">
+        <el-select v-model="formData.class_id" placeholder="请选择班级代码">
+          <el-option value="101" label="信计1班" />
+          <el-option value="102" label="信计2班" />
+          <el-option value="103" label="信计3班" />
+          <el-option value="104" label="信计4班" />
+        </el-select>
+      </el-form-item>
+      <div class="flex justify-center items-center">
+        <el-button type="primary" @click="addUser">添加</el-button>
+      </div>
+    </el-form>
+  </el-dialog>
 </template>
 
 <script setup lang="ts">
 import BasicTable from '/@/components/Table/BasicTable.vue'
 import { columns } from './index.data'
-import { getUserList } from './index.api'
+import { getUserList, exportUserList, insertUser } from './index.api'
 import { DataItem } from './index'
 import { reactive, ref } from 'vue'
 import { PostData } from '/@/types'
+import { Download, Plus, Upload } from '@element-plus/icons-vue'
+import exportExcel from '/@/utils/exportExcel'
+import { ElMessage } from 'element-plus'
 
 const loading = ref(false)
 const currentPage = ref(1)
@@ -41,20 +99,65 @@ const pageSize = ref(10)
 const pageSizeOption = reactive([10, 30, 50, 100])
 const total = ref(0)
 const dataSource: DataItem[] = reactive([])
+const account = ref('')
+const identity = ref('')
+const dialogVisible = ref(false)
+const formData: Partial<DataItem> = reactive({})
+const myForm = ref()
+const rules = reactive({
+  account: [{ required: true, message: '不可为空！', triggle: 'blur' }],
+  username: [{ required: true, message: '不可为空！', triggle: 'blur' }],
+  identity: [{ required: true, message: '不可为空！', triggle: 'blur' }]
+})
 
 getList()
 
 function getList() {
   loading.value = true
-  const postData: PostData = {
+  const postData: PostData & Partial<DataItem> = {
     page: currentPage.value,
-    pageSize: pageSize.value
+    pageSize: pageSize.value,
+    account: account.value,
+    identity: identity.value
   }
   getUserList(postData).then((res: any) => {
     total.value = res.total
     dataSource.length = 0
     dataSource.push(...res.items)
     loading.value = false
+  })
+}
+function exportList() {
+  const postData: Partial<PostData> & Partial<DataItem> = {
+    pageSize: 5000,
+    account: account.value,
+    identity: identity.value
+  }
+  exportUserList(postData).then(res => {
+    // console.table(res)
+    exportExcel(res, ['id', 'username', 'account', 'class_id', 'identity'], '用户列表')
+  })
+}
+async function addUser() {
+  const result = await myForm.value.validate()
+  if (!result) return
+  if (formData.identity !== 'student') {
+    formData.class_id = null
+  } else {
+    if (!formData.class_id) {
+      ElMessage.warning('必须选择班级')
+      return
+    }
+  }
+  console.log(formData)
+
+  insertUser(formData).then(res => {
+    if (res) {
+      ElMessage.success('success')
+      dialogVisible.value = false
+      myForm.value.resetFields()
+      getList()
+    }
   })
 }
 </script>

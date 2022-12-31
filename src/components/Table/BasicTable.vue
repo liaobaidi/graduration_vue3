@@ -1,7 +1,7 @@
 <template>
   <div id="basicTable">
     <div class="flex justify-between">
-      <div>
+      <div class="flex w-1/1">
         <slot name="tableTitle" />
       </div>
       <div class="flex items-center">
