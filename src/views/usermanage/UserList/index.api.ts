@@ -3,7 +3,8 @@ import request from '/@/utils/request'
 enum Api {
   list = '/user/list',
   export = '/user/export',
-  add = '/user/insert'
+  add = '/user/insert',
+  import = '/user/import'
 }
 /**
  * 用户列表
@@ -28,4 +29,17 @@ export const exportUserList = params => {
  */
 export const insertUser = params => {
   return request.post(Api.add, params)
+}
+/**
+ * 批量导入
+ * @param params 
+ * @returns 
+ */
+export const importUser = params => {
+  return request({
+    url: Api.import,
+    method: 'POST',
+    data: params,
+    headers: { 'Content-Type': 'multipart/form-data' }
+  })
 }

@@ -39,7 +39,7 @@
         <div class="flex items-center w-1/6">
           <el-button type="primary" :icon="Plus" @click="dialogVisible = true">添加用户</el-button>
           <el-button type="primary" :icon="Download" @click="exportList">导出</el-button>
-          <el-button type="primary" :icon="Upload">导入</el-button>
+          <el-button type="primary" :icon="Upload" @click="importStatus = true">导入</el-button>
         </div>
       </template>
     </BasicTable>
@@ -80,14 +80,22 @@
       </div>
     </el-form>
   </el-dialog>
+  <el-dialog v-model="importStatus" title="导入文件" width="30%">
+    <div>
+      <div class="text-blue-400 mb-4 cursor-pointer" @click="chooseFile">
+        {{ import_text }}
+      </div>
+      <el-button type="primary" @click="toImport">导入</el-button>
+    </div>
+  </el-dialog>
 </template>
 
 <script setup lang="ts">
 import BasicTable from '/@/components/Table/BasicTable.vue'
 import { columns } from './index.data'
-import { getUserList, exportUserList, insertUser } from './index.api'
+import { getUserList, exportUserList, insertUser, importUser } from './index.api'
 import { DataItem } from './index'
-import { reactive, ref } from 'vue'
+import { reactive, ref, Ref } from 'vue'
 import { PostData } from '/@/types'
 import { Download, Plus, Upload } from '@element-plus/icons-vue'
 import exportExcel from '/@/utils/exportExcel'
@@ -109,6 +117,9 @@ const rules = reactive({
   username: [{ required: true, message: '不可为空！', triggle: 'blur' }],
   identity: [{ required: true, message: '不可为空！', triggle: 'blur' }]
 })
+const import_file: Ref<File | null> = ref(null)
+const import_text = ref('选择文件')
+const importStatus = ref(false)
 
 getList()
 
@@ -158,6 +169,27 @@ async function addUser() {
       myForm.value.resetFields()
       getList()
     }
+  })
+}
+
+function chooseFile() {
+  import_file.value = null
+  import_text.value = '选择文件'
+  const input = document.createElement('input')
+  input.type = 'file'
+  input.click()
+  input.onchange = () => {
+    import_file.value = input.files![0]
+    import_text.value = import_file.value!.name
+  }
+}
+
+function toImport() {
+  const form = new FormData()
+  form.append('enctype', 'multipart/form-data')
+  form.append('file', new Blob([import_file.value!]), import_file.value!.name)
+  importUser(form).then(res => {
+    console.log(res)
   })
 }
 </script>
