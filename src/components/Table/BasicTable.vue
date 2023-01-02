@@ -21,6 +21,9 @@
       <template v-for="(index, name) in $slots" :slot="name">
         <slot :name="name" />
       </template>
+      <template #empty>
+        <el-empty description="暂时没有数据" />
+      </template>
     </el-table>
     <div class="w-1/1 flex items-center mt-6 justify-end">
       <el-pagination v-bind="$attrs"></el-pagination>

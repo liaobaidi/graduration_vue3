@@ -26,6 +26,7 @@ request.interceptors.response.use((response: AxiosResponse) => {
 		ElMessage.error(res.msg)
 	} else if(+res.code === 401) {
 		// token 过期
+		ElMessage.error(res.msg)
 		localStorage.removeItem('token')
 		cookie.remove('TOKEN')
 		location.reload()

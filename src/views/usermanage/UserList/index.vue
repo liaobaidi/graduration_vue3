@@ -42,6 +42,15 @@
           <el-button type="primary" :icon="Upload" @click="importStatus = true">导入</el-button>
         </div>
       </template>
+      <el-table-column fixed="right" label="操作" width="120">
+        <template #default="{ row }">
+          <el-popconfirm title="您确定删除此用户?" @confirm="toDelete(row.id)">
+            <template #reference>
+              <el-button link type="danger" size="small">删除</el-button>
+            </template>
+          </el-popconfirm>
+        </template>
+      </el-table-column>
     </BasicTable>
     <!-- <el-pagination :total="total"></el-pagination> -->
   </div>
@@ -80,12 +89,12 @@
       </div>
     </el-form>
   </el-dialog>
-  <el-dialog v-model="importStatus" title="导入文件" width="30%">
+  <el-dialog v-model="importStatus" title="导入文件" width="30%" @closed="clearFile">
     <div>
       <div class="text-blue-400 mb-4 cursor-pointer" @click="chooseFile">
         {{ import_text }}
       </div>
-      <el-button type="primary" @click="toImport">导入</el-button>
+      <el-button type="primary" :disabled="!import_file" @click="toImport">导入</el-button>
     </div>
   </el-dialog>
 </template>
@@ -93,7 +102,7 @@
 <script setup lang="ts">
 import BasicTable from '/@/components/Table/BasicTable.vue'
 import { columns } from './index.data'
-import { getUserList, exportUserList, insertUser, importUser } from './index.api'
+import { getUserList, exportUserList, insertUser, importUser, deleteUser } from './index.api'
 import { DataItem } from './index'
 import { reactive, ref, Ref } from 'vue'
 import { PostData } from '/@/types'
@@ -160,8 +169,6 @@ async function addUser() {
       return
     }
   }
-  console.log(formData)
-
   insertUser(formData).then(res => {
     if (res) {
       ElMessage.success('success')
@@ -172,9 +179,13 @@ async function addUser() {
   })
 }
 
-function chooseFile() {
+function clearFile() {
   import_file.value = null
   import_text.value = '选择文件'
+}
+
+function chooseFile() {
+  clearFile()
   const input = document.createElement('input')
   input.type = 'file'
   input.click()
@@ -189,7 +200,25 @@ function toImport() {
   form.append('enctype', 'multipart/form-data')
   form.append('file', new Blob([import_file.value!]), import_file.value!.name)
   importUser(form).then(res => {
-    console.log(res)
+    if (res) {
+      ElMessage.success('导入成功！')
+      import_file.value = null
+      importStatus.value = false
+      clearFile()
+      getList()
+    }
+  })
+}
+
+function toDelete(id: number) {
+  const postData = {
+    id
+  }
+  deleteUser(postData).then(res => {
+    if (res) {
+      ElMessage.success('删除成功！')
+      getList()
+    }
   })
 }
 </script>

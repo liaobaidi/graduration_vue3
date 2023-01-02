@@ -4,7 +4,8 @@ enum Api {
   list = '/user/list',
   export = '/user/export',
   add = '/user/insert',
-  import = '/user/import'
+  import = '/user/import',
+  delete = '/user/delete'
 }
 /**
  * 用户列表
@@ -42,4 +43,12 @@ export const importUser = params => {
     data: params,
     headers: { 'Content-Type': 'multipart/form-data' }
   })
+}
+/**
+ * 删除用户
+ * @param params 
+ * @returns 
+ */
+export const deleteUser = params => {
+  return request.post(Api.delete, params)
 }
