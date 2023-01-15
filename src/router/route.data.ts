@@ -50,8 +50,61 @@ export const expandRoutes: ExpandRoute = {
           component: () => import('/@/views/usermanage/UserList/index.vue')
         }
       ]
+    },
+    {
+      path: 'experiment',
+      name: 'experiment',
+      meta: {
+        name: '/实验管理'
+      },
+      children: [
+        {
+          path: 'experimentlist',
+          name: 'experimentlist',
+          meta: {
+            name: '/实验管理/实验室列表'
+          },
+          component: () => import('/@/views/experiment/experimentList/ExperimentList.vue')
+        }
+      ]
     }
   ],
-  teacher: [],
-  student: []
+  teacher: [
+    {
+      path: 'experiment',
+      name: 'experiment',
+      meta: {
+        name: '/实验管理'
+      },
+      children: [
+        {
+          path: 'experimentlist',
+          name: 'experimentlist',
+          meta: {
+            name: '/实验管理/实验室列表'
+          },
+          component: () => import('/@/views/experiment/experimentList/ExperimentList.vue')
+        }
+      ]
+    }
+  ],
+  student: [
+    {
+      path: 'experiment',
+      name: 'experiment',
+      meta: {
+        name: '/实验管理'
+      },
+      children: [
+        {
+          path: 'experimentlist',
+          name: 'experimentlist',
+          meta: {
+            name: '/实验管理/实验室列表'
+          },
+          component: () => import('/@/views/experiment/experimentList/ExperimentList.vue')
+        }
+      ]
+    }
+  ]
 }
