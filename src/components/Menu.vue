@@ -1,6 +1,6 @@
 <template>
 	<div class="menu-container h-1/1">
-		<el-menu :collapse="isCollapse" router>
+		<el-menu :collapse="isCollapse" router unique-opened>
 			<div class="p-4 text-white font-700 ellipsis1 text-center flex items-center justify-center">
 				<el-icon size="26">
 					<img src="/icon.svg" alt="" />

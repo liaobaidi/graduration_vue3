@@ -1,11 +1,11 @@
 export default {
   admin: [
     {
-      path: '/home',
+      path: '/home/dashboard',
       name: 'Dashboard',
       children: [
         {
-          path: '/home/test',
+          path: '/home/dashboard/homepage',
           name: '首页'
         }
       ]
@@ -29,15 +29,25 @@ export default {
           name: '实验室列表'
         }
       ]
+    },
+    {
+      path: '/home/message',
+      name: '信息管理',
+      children: [
+        {
+          path: '/home/message/noticelist',
+          name: '公告列表'
+        }
+      ]
     }
   ],
   teacher: [
     {
-      path: '/home',
+      path: '/home/dashboard',
       name: 'Dashboard',
       children: [
         {
-          path: '/home/test',
+          path: '/home/dashboard/homepage',
           name: '首页'
         }
       ]
@@ -49,17 +59,27 @@ export default {
         {
           path: '/home/experiment/experimentlist',
           name: '实验室列表'
+        }
+      ]
+    },
+    {
+      path: '/home/message',
+      name: '信息管理',
+      children: [
+        {
+          path: '/home/message/noticelist',
+          name: '公告列表'
         }
       ]
     }
   ],
   student: [
     {
-      path: '/home',
+      path: '/home/dashboard',
       name: 'Dashboard',
       children: [
         {
-          path: '/home/test',
+          path: '/home/dashboard/homepage',
           name: '首页'
         }
       ]
@@ -71,6 +91,16 @@ export default {
         {
           path: '/home/experiment/experimentlist',
           name: '实验室列表'
+        }
+      ]
+    },
+    {
+      path: '/home/message',
+      name: '信息管理',
+      children: [
+        {
+          path: '/home/message/noticelist',
+          name: '公告列表'
         }
       ]
     }

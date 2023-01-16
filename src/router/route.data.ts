@@ -12,11 +12,30 @@ export const expandRoutes: ExpandRoute = {
     {
       name: 'home',
       path: '/home',
+      redirect: '/home/dashboard',
       component: () => import('/@/views/Home/index.vue'),
       meta: {
         name: '/首页'
       },
       children: [
+        {
+          name: 'dashboard',
+          path: 'dashboard',
+          redirect: '/home/dashboard/homepage',
+          meta: {
+            name: '/首页'
+          },
+          children: [
+            {
+              path: 'homepage',
+              name: 'homepage',
+              meta: {
+                name: '/首页/数据面板'
+              },
+              component: () => import('/@/views/dashboard/homepage/HomePage.vue')
+            }
+          ]
+        },
         {
           name: '404',
           path: '/404',
@@ -67,6 +86,39 @@ export const expandRoutes: ExpandRoute = {
           component: () => import('/@/views/experiment/experimentList/ExperimentList.vue')
         }
       ]
+    },
+    {
+      path: 'message',
+      name: 'message',
+      meta: {
+        name: '/信息管理'
+      },
+      children: [
+        {
+          path: 'noticelist',
+          name: 'noticelist',
+          meta: {
+            name: '/信息管理/公告列表'
+          },
+          component: () => import('/@/views/message/noticelist/NoticeList.vue')
+        },
+        {
+          path: 'createnotice',
+          name: 'createnotice',
+          meta: {
+            name: '/信息管理/创建公告'
+          },
+          component: () => import('/@/views/message/createnotice/CreateNotice.vue')
+        },
+        {
+          path: 'noticeinfo',
+          name: 'noticeinfo',
+          meta: {
+            name: '/信息管理/公告详情'
+          },
+          component: () => import('/@/views/message/noticeinfo/NoticeInfo.vue')
+        }
+      ]
     }
   ],
   teacher: [
@@ -86,6 +138,39 @@ export const expandRoutes: ExpandRoute = {
           component: () => import('/@/views/experiment/experimentList/ExperimentList.vue')
         }
       ]
+    },
+    {
+      path: 'message',
+      name: 'message',
+      meta: {
+        name: '/信息管理'
+      },
+      children: [
+        {
+          path: 'noticelist',
+          name: 'noticelist',
+          meta: {
+            name: '/信息管理/公告列表'
+          },
+          component: () => import('/@/views/message/noticelist/NoticeList.vue')
+        },
+        {
+          path: 'createnotice',
+          name: 'createnotice',
+          meta: {
+            name: '/信息管理/创建公告'
+          },
+          component: () => import('/@/views/message/createnotice/CreateNotice.vue')
+        },
+        {
+          path: 'noticeinfo',
+          name: 'noticeinfo',
+          meta: {
+            name: '/信息管理/公告详情'
+          },
+          component: () => import('/@/views/message/noticeinfo/NoticeInfo.vue')
+        }
+      ]
     }
   ],
   student: [
@@ -103,6 +188,31 @@ export const expandRoutes: ExpandRoute = {
             name: '/实验管理/实验室列表'
           },
           component: () => import('/@/views/experiment/experimentList/ExperimentList.vue')
+        }
+      ]
+    },
+    {
+      path: 'message',
+      name: 'message',
+      meta: {
+        name: '/信息管理'
+      },
+      children: [
+        {
+          path: 'noticelist',
+          name: 'noticelist',
+          meta: {
+            name: '/信息管理/公告列表'
+          },
+          component: () => import('/@/views/message/noticelist/NoticeList.vue')
+        },
+        {
+          path: 'noticeinfo',
+          name: 'noticeinfo',
+          meta: {
+            name: '/信息管理/公告详情'
+          },
+          component: () => import('/@/views/message/noticeinfo/NoticeInfo.vue')
         }
       ]
     }
