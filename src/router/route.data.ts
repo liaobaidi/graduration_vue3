@@ -38,7 +38,7 @@ export const expandRoutes: ExpandRoute = {
         },
         {
           name: '404',
-          path: '/404',
+          path: '404',
           meta: {
             name: '/页面没有找到'
           },
@@ -84,6 +84,22 @@ export const expandRoutes: ExpandRoute = {
             name: '/实验管理/实验室列表'
           },
           component: () => import('/@/views/experiment/experimentList/ExperimentList.vue')
+        },
+        {
+          path: 'appointmentlist',
+          name: 'appointmentlist',
+          meta: {
+            name: '/实验管理/预约列表'
+          },
+          component: () => import('/@/views/experiment/appointmentlist/AppointmentList.vue')
+        },
+        {
+          path: 'experiencelist',
+          name: 'experiencelist',
+          meta: {
+            name: '/实验管理/实验列表'
+          },
+          component: () => import('/@/views/experiment/experiencelist/ExperienceList.vue')
         }
       ]
     },
@@ -136,6 +152,22 @@ export const expandRoutes: ExpandRoute = {
             name: '/实验管理/实验室列表'
           },
           component: () => import('/@/views/experiment/experimentList/ExperimentList.vue')
+        },
+        {
+          path: 'appointmentlist',
+          name: 'appointmentlist',
+          meta: {
+            name: '/实验管理/预约列表'
+          },
+          component: () => import('/@/views/experiment/appointmentlist/AppointmentList.vue')
+        },
+        {
+          path: 'experiencelist',
+          name: 'experiencelist',
+          meta: {
+            name: '/实验管理/实验列表'
+          },
+          component: () => import('/@/views/experiment/experiencelist/ExperienceList.vue')
         }
       ]
     },
@@ -188,6 +220,22 @@ export const expandRoutes: ExpandRoute = {
             name: '/实验管理/实验室列表'
           },
           component: () => import('/@/views/experiment/experimentList/ExperimentList.vue')
+        },
+        {
+          path: 'appointmentlist',
+          name: 'appointmentlist',
+          meta: {
+            name: '/实验管理/预约列表'
+          },
+          component: () => import('/@/views/experiment/appointmentlist/AppointmentList.vue')
+        },
+        {
+          path: 'experiencelist',
+          name: 'experiencelist',
+          meta: {
+            name: '/实验管理/实验列表'
+          },
+          component: () => import('/@/views/experiment/experiencelist/ExperienceList.vue')
         }
       ]
     },

@@ -1,13 +1,13 @@
 <template>
   <div class="flex">
-    <div v-loading="loading" :class="['w-1/2 bg-white p-4 pb-12 mr-4 relative', noticeInfo.protocol ? 'pb-20' : '']">
+    <div v-loading="loading" :class="['w-1/2 bg-white p-4 pb-12 mr-4 relative h-1/1', noticeInfo.protocol ? 'pb-20' : '']">
       <div class="title font-700 text-center" style="font-size: 1.8vw">{{ noticeInfo.title }}</div>
       <div class="author font-500 text-center text-gray-500 mt-6" style="font-size: 1vw">{{ noticeInfo.author }}</div>
-      <div class="info mt-6" style="font-size: 1.2vw">{{ noticeInfo.info }}</div>
+      <div class="info mt-6" style="font-size: 1.1vw">{{ noticeInfo.info }}</div>
       <div class="absolute bottom-4">
         <div class="date ext-center text-gray-500 mt-6" style="font-size: 0.9vw">{{ noticeInfo.date }}</div>
         <div v-if="noticeInfo.protocol" class="protocol text-blue-500 cursor-pointer mt-2" style="font-size: 1vw">
-          <a :href="noticeInfo.protocol" download>附件</a>
+          <a :href="noticeInfo.protocol" download>附件: {{ noticeInfo.protocol.split('/').at(-1) }}</a>
         </div>
       </div>
     </div>

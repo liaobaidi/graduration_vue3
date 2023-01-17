@@ -11,6 +11,13 @@ body {
 	--el-aside-width: 10.4167vw; // 侧边菜单宽度
 	--el-menu-text-color: #efefef;
 }
+.scrollbar-hidden {
+	&::-webkit-scrollbar {
+		display: none;
+	}
+	scrollbar-width: 0;
+	-ms-overflow-style: none;
+}
 .ellipsis1 {
 	overflow: hidden;
 	text-overflow: ellipsis;

@@ -27,6 +27,14 @@ export default {
         {
           path: '/home/experiment/experimentlist',
           name: '实验室列表'
+        },
+        {
+          path: '/home/experiment/appointmentlist',
+          name: '预约列表'
+        },
+        {
+          path: '/home/experiment/experiencelist',
+          name: '实验列表'
         }
       ]
     },
@@ -59,6 +67,14 @@ export default {
         {
           path: '/home/experiment/experimentlist',
           name: '实验室列表'
+        },
+        {
+          path: '/home/experiment/appointmentlist',
+          name: '预约列表'
+        },
+        {
+          path: '/home/experiment/experiencelist',
+          name: '实验列表'
         }
       ]
     },
@@ -91,6 +107,14 @@ export default {
         {
           path: '/home/experiment/experimentlist',
           name: '实验室列表'
+        },
+        {
+          path: '/home/experiment/appointmentlist',
+          name: '预约列表'
+        },
+        {
+          path: '/home/experiment/experiencelist',
+          name: '实验列表'
         }
       ]
     },

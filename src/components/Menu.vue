@@ -1,6 +1,6 @@
 <template>
 	<div class="menu-container h-1/1">
-		<el-menu :collapse="isCollapse" router unique-opened>
+		<el-menu :collapse="isCollapse" router unique-opened :default-active="route.path">
 			<div class="p-4 text-white font-700 ellipsis1 text-center flex items-center justify-center">
 				<el-icon size="26">
 					<img src="/icon.svg" alt="" />
@@ -20,7 +20,7 @@
 <script lang="ts" setup name="menu">
 import { defineProps } from 'vue'
 import menuData from './data/menu.data'
-import { useRouter } from 'vue-router'
+import { useRouter, useRoute } from 'vue-router'
 defineProps({
 	isCollapse: {
 		type: Boolean,
@@ -28,6 +28,7 @@ defineProps({
 	}
 })
 const router = useRouter()
+const route = useRoute()
 let sys_title = import.meta.env.VITE_APP_SYS_TITLE
 let identity = JSON.parse(localStorage.getItem('userinfo')!).identity
 console.log(identity, 'identity')
