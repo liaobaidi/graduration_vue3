@@ -135,6 +135,47 @@ export const expandRoutes: ExpandRoute = {
           component: () => import('/@/views/message/noticeinfo/NoticeInfo.vue')
         }
       ]
+    },
+    {
+      path: 'homework',
+      name: 'homework',
+      meta: {
+        name: '/作业管理'
+      },
+      children: [
+        {
+          path: 'homeworklist',
+          name: 'homeworklist',
+          meta: {
+            name: '/作业管理/作业列表'
+          },
+          component: () => import('/@/views/homework/homeworklist/HomeworkList.vue')
+        },
+        {
+          path: 'createhomework',
+          name: 'createhomework',
+          meta: {
+            name: '/作业管理/发布作业'
+          },
+          component: () => import('/@/views/homework/createhomework/CreateHomework.vue')
+        },
+        {
+          path: 'checkhomework',
+          name: 'checkhomework',
+          meta: {
+            name: '/作业管理/批改作业'
+          },
+          component: () => import('/@/views/homework/checkhomework/CheckHomework.vue')
+        },
+        {
+          path: 'homeworkinfo',
+          name: 'homeworkinfo',
+          meta: {
+            name: '/作业管理/作业详情（批改）'
+          },
+          component: () => import('/@/views/homework/homeworkinfo/HomeworkInfo.vue')
+        }
+      ]
     }
   ],
   teacher: [
@@ -203,6 +244,47 @@ export const expandRoutes: ExpandRoute = {
           component: () => import('/@/views/message/noticeinfo/NoticeInfo.vue')
         }
       ]
+    },
+    {
+      path: 'homework',
+      name: 'homework',
+      meta: {
+        name: '/作业管理'
+      },
+      children: [
+        {
+          path: 'homeworklist',
+          name: 'homeworklist',
+          meta: {
+            name: '/作业管理/作业列表'
+          },
+          component: () => import('/@/views/homework/homeworklist/HomeworkList.vue')
+        },
+        {
+          path: 'createhomework',
+          name: 'createhomework',
+          meta: {
+            name: '/作业管理/发布作业'
+          },
+          component: () => import('/@/views/homework/createhomework/CreateHomework.vue')
+        },
+        {
+          path: 'checkhomework',
+          name: 'checkhomework',
+          meta: {
+            name: '/作业管理/批改作业'
+          },
+          component: () => import('/@/views/homework/checkhomework/CheckHomework.vue')
+        },
+        {
+          path: 'homeworkinfo',
+          name: 'homeworkinfo',
+          meta: {
+            name: '/作业管理/作业详情（批改）'
+          },
+          component: () => import('/@/views/homework/homeworkinfo/HomeworkInfo.vue')
+        }
+      ]
     }
   ],
   student: [
@@ -261,6 +343,39 @@ export const expandRoutes: ExpandRoute = {
             name: '/信息管理/公告详情'
           },
           component: () => import('/@/views/message/noticeinfo/NoticeInfo.vue')
+        }
+      ]
+    },
+    {
+      path: 'homework',
+      name: 'homework',
+      meta: {
+        name: '/作业管理'
+      },
+      children: [
+        {
+          path: 'homeworklist',
+          name: 'homeworklist',
+          meta: {
+            name: '/作业管理/作业列表'
+          },
+          component: () => import('/@/views/homework/homeworklist/HomeworkList.vue')
+        },
+        {
+          path: 'commithomework',
+          name: 'commithomework',
+          meta: {
+            name: '/作业管理/提交作业'
+          },
+          component: () => import('/@/views/homework/commithomework/CommitHomework.vue')
+        },
+        {
+          path: 'homeworkinfo',
+          name: 'homeworkinfo',
+          meta: {
+            name: '/作业管理/作业详情（批改）'
+          },
+          component: () => import('/@/views/homework/homeworkinfo/HomeworkInfo.vue')
         }
       ]
     }

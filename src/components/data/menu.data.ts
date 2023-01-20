@@ -47,6 +47,24 @@ export default {
           name: '公告列表'
         }
       ]
+    },
+    {
+      path: '/home/homework',
+      name: '作业管理',
+      children: [
+        {
+          path: '/home/homework/homeworklist',
+          name: '作业列表'
+        },
+        {
+          path: '/home/homework/createhomework',
+          name: '发布作业'
+        },
+        {
+          path: '/home/homework/checkhomework',
+          name: '批改作业'
+        }
+      ]
     }
   ],
   teacher: [
@@ -87,6 +105,24 @@ export default {
           name: '公告列表'
         }
       ]
+    },
+    {
+      path: '/home/homework',
+      name: '作业管理',
+      children: [
+        {
+          path: '/home/homework/homeworklist',
+          name: '作业列表'
+        },
+        {
+          path: '/home/homework/createhomework',
+          name: '发布作业'
+        },
+        {
+          path: '/home/homework/checkhomework',
+          name: '批改作业'
+        }
+      ]
     }
   ],
   student: [
@@ -125,6 +161,16 @@ export default {
         {
           path: '/home/message/noticelist',
           name: '公告列表'
+        }
+      ]
+    },
+    {
+      path: '/home/homework',
+      name: '作业管理',
+      children: [
+        {
+          path: '/home/homework/homeworklist',
+          name: '作业列表'
         }
       ]
     }
