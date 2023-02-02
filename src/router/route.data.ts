@@ -176,6 +176,64 @@ export const expandRoutes: ExpandRoute = {
           component: () => import('/@/views/homework/homeworkinfo/HomeworkInfo.vue')
         }
       ]
+    },
+    {
+      path: 'datamanage',
+      name: 'datamanage',
+      meta: {
+        name: '/资料管理'
+      },
+      children: [
+        {
+          path: 'videolist',
+          name: 'videolist',
+          meta: {
+            name: '/资料管理/视频列表'
+          },
+          component: () => import('/@/views/datamanage/videolist/VideoList.vue')
+        },
+        {
+          path: 'filelist',
+          name: 'filelist',
+          meta: {
+            name: '/资料管理/资料列表'
+          },
+          component: () => import('/@/views/datamanage/filelist/FileList.vue')
+        },
+        {
+          path: 'createvideo',
+          name: 'createvideo',
+          meta: {
+            name: '/资料管理/创建视频'
+          },
+          component: () => import('/@/views/datamanage/createvideo/CreateVideo.vue')
+        },
+        {
+          path: 'videoinfo',
+          name: 'videoinfo',
+          meta: {
+            name: '/资料管理/视频详情'
+          },
+          component: () => import('/@/views/datamanage/videoinfo/VideoInfo.vue')
+        }
+      ]
+    },
+    {
+      path: 'comment',
+      name: 'comment',
+      meta: {
+        name: '/评论管理'
+      },
+      children: [
+        {
+          path: 'commentlist',
+          name: 'commentlist',
+          meta: {
+            name: '/评论管理/评论列表'
+          },
+          component: () => import('/@/views/comment/commentlist/CommentList.vue')
+        }
+      ]
     }
   ],
   teacher: [
@@ -285,6 +343,47 @@ export const expandRoutes: ExpandRoute = {
           component: () => import('/@/views/homework/homeworkinfo/HomeworkInfo.vue')
         }
       ]
+    },
+    {
+      path: 'datamanage',
+      name: 'datamanage',
+      meta: {
+        name: '/资料管理'
+      },
+      children: [
+        {
+          path: 'videolist',
+          name: 'videolist',
+          meta: {
+            name: '/资料管理/视频列表'
+          },
+          component: () => import('/@/views/datamanage/videolist/VideoList.vue')
+        },
+        {
+          path: 'filelist',
+          name: 'filelist',
+          meta: {
+            name: '/资料管理/资料列表'
+          },
+          component: () => import('/@/views/datamanage/filelist/FileList.vue')
+        },
+        {
+          path: 'createvideo',
+          name: 'createvideo',
+          meta: {
+            name: '/资料管理/创建视频'
+          },
+          component: () => import('/@/views/datamanage/createvideo/CreateVideo.vue')
+        },
+        {
+          path: 'videoinfo',
+          name: 'videoinfo',
+          meta: {
+            name: '/资料管理/视频详情'
+          },
+          component: () => import('/@/views/datamanage/videoinfo/VideoInfo.vue')
+        }
+      ]
     }
   ],
   student: [
@@ -376,6 +475,39 @@ export const expandRoutes: ExpandRoute = {
             name: '/作业管理/作业详情（批改）'
           },
           component: () => import('/@/views/homework/homeworkinfo/HomeworkInfo.vue')
+        }
+      ]
+    },
+    {
+      path: 'datamanage',
+      name: 'datamanage',
+      meta: {
+        name: '/资料管理'
+      },
+      children: [
+        {
+          path: 'videolist',
+          name: 'videolist',
+          meta: {
+            name: '/资料管理/视频列表'
+          },
+          component: () => import('/@/views/datamanage/videolist/VideoList.vue')
+        },
+        {
+          path: 'filelist',
+          name: 'filelist',
+          meta: {
+            name: '/资料管理/资料列表'
+          },
+          component: () => import('/@/views/datamanage/filelist/FileList.vue')
+        },
+        {
+          path: 'videoinfo',
+          name: 'videoinfo',
+          meta: {
+            name: '/资料管理/视频详情'
+          },
+          component: () => import('/@/views/datamanage/videoinfo/VideoInfo.vue')
         }
       ]
     }

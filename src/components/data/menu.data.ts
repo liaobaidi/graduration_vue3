@@ -65,6 +65,34 @@ export default {
           name: '批改作业'
         }
       ]
+    },
+    {
+      path: '/home/datamanage',
+      name: '资料管理',
+      children: [
+        {
+          path: '/home/datamanage/videolist',
+          name: '视频列表'
+        },
+        {
+          path: '/home/datamanage/filelist',
+          name: '资料列表'
+        },
+        {
+          path: '/home/datamanage/createvideo',
+          name: '创建视频'
+        }
+      ]
+    },
+    {
+      path: '/home/comment',
+      name: '评论管理',
+      children: [
+        {
+          path: '/home/comment/commentlist',
+          name: '评论列表'
+        }
+      ]
     }
   ],
   teacher: [
@@ -123,6 +151,24 @@ export default {
           name: '批改作业'
         }
       ]
+    },
+    {
+      path: '/home/datamanage',
+      name: '资料管理',
+      children: [
+        {
+          path: '/home/datamanage/videolist',
+          name: '视频列表'
+        },
+        {
+          path: '/home/datamanage/filelist',
+          name: '资料列表'
+        },
+        {
+          path: '/home/datamanage/createvideo',
+          name: '创建视频'
+        }
+      ]
     }
   ],
   student: [
@@ -171,6 +217,20 @@ export default {
         {
           path: '/home/homework/homeworklist',
           name: '作业列表'
+        }
+      ]
+    },
+    {
+      path: '/home/datamanage',
+      name: '资料管理',
+      children: [
+        {
+          path: '/home/datamanage/videolist',
+          name: '视频列表'
+        },
+        {
+          path: '/home/datamanage/filelist',
+          name: '资料列表'
         }
       ]
     }
