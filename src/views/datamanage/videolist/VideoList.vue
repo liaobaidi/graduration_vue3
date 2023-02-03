@@ -39,7 +39,7 @@
         </div>
         <div class="flex justify-between">
           <span></span>
-          <span style="font-size: 0.2vw" class="text-blue-400" @click.stop="router.push(`/home/datamanage/createvideo?id=${item.id}`)">修改</span>
+          <span v-if="identity === 'admin'" style="font-size: 0.2vw" class="text-blue-400" @click.stop="router.push(`/home/datamanage/createvideo?id=${item.id}`)">修改</span>
         </div>
       </div>
     </main>

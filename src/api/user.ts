@@ -44,8 +44,8 @@ export const user_update = (params: any) => {
  * @param params
  * @returns
  */
-export const user_info = (params: any) => {
-  return request.post(Api.detail, params)
+export const user_info = () => {
+  return request.post(Api.detail)
 }
 /**
  * 修改用户信息

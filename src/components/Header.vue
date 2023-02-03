@@ -151,7 +151,7 @@ const toggle = () => {
 getDetail()
 
 function getDetail() {
-  user_info({ account: JSON.parse(localStorage.getItem('userinfo')!).account }).then(res => {
+  user_info().then(res => {
     Object.assign(userInfo, res[0])
     userInfo.brith = dayjs(userInfo.brith).format('YYYY-MM-DD')
   })
