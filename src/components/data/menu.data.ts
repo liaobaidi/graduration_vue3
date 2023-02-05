@@ -81,6 +81,10 @@ export default {
         {
           path: '/home/datamanage/createvideo',
           name: '创建视频'
+        },
+        {
+          path: '/home/datamanage/createfile',
+          name: '创建资料'
         }
       ]
     },
@@ -167,6 +171,10 @@ export default {
         {
           path: '/home/datamanage/createvideo',
           name: '创建视频'
+        },
+        {
+          path: '/home/datamanage/createfile',
+          name: '创建资料'
         }
       ]
     }

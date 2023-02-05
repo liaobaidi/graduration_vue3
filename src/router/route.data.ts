@@ -215,6 +215,14 @@ export const expandRoutes: ExpandRoute = {
             name: '/资料管理/视频详情'
           },
           component: () => import('/@/views/datamanage/videoinfo/VideoInfo.vue')
+        },
+        {
+          path: 'createfile',
+          name: 'createfile',
+          meta: {
+            name: '/资料管理/创建资料'
+          },
+          component: () => import('/@/views/datamanage/createfile/CreateFile.vue')
         }
       ]
     },
@@ -232,6 +240,14 @@ export const expandRoutes: ExpandRoute = {
             name: '/评论管理/评论列表'
           },
           component: () => import('/@/views/comment/commentlist/CommentList.vue')
+        },
+        {
+          path: 'commentinfo',
+          name: 'commentinfo',
+          meta: {
+            name: '/评论管理/评论详情'
+          },
+          component: () => import('/@/views/comment/commentinfo/CommentInfo.vue')
         }
       ]
     }
@@ -382,6 +398,14 @@ export const expandRoutes: ExpandRoute = {
             name: '/资料管理/视频详情'
           },
           component: () => import('/@/views/datamanage/videoinfo/VideoInfo.vue')
+        },
+        {
+          path: 'createfile',
+          name: 'createfile',
+          meta: {
+            name: '/资料管理/创建资料'
+          },
+          component: () => import('/@/views/datamanage/createfile/CreateFile.vue')
         }
       ]
     }
