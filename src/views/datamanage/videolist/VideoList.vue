@@ -42,6 +42,9 @@
           <span v-if="identity === 'admin'" style="font-size: 0.2vw" class="text-blue-400" @click.stop="router.push(`/home/datamanage/createvideo?id=${item.id}`)">修改</span>
         </div>
       </div>
+      <div v-if="!dataSource.length" class="flex justify-center w-full">
+          <el-empty description="暂时没有视频" />
+        </div>
     </main>
   </div>
 </template>

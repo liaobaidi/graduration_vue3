@@ -83,10 +83,10 @@
           </div>
         </el-form-item>
         <el-form-item label="账号">
-          <el-input v-model="userInfo.account" disabled />
+          <el-input :value="localInfo.account" disabled />
         </el-form-item>
         <el-form-item label="姓名">
-          <el-input v-model="userInfo.username" disabled />
+          <el-input :value="localInfo.username" disabled />
         </el-form-item>
         <el-form-item label="性别">
           <el-select v-model="userInfo.gender">
@@ -142,6 +142,7 @@ const language = ref('zh-cn')
 const userInfo: Partial<UserInfo> = reactive({})
 const userInfoStatus = ref(false)
 const uploadFiles: Ref<File | null> = ref()
+const localInfo = JSON.parse(localStorage.getItem('userinfo')!)
 
 const toggle = () => {
   language.value = language.value === 'zh-cn' ? 'en' : 'zh-cn'
@@ -160,7 +161,8 @@ function getDetail() {
 function save() {
   console.log('save')
   userInfo.brith = dayjs(userInfo.brith).format('YYYY-MM-DD')
-
+  userInfo.account = localInfo.account
+  userInfo.username = localInfo.username
   user_save(userInfo).then(res => {
     if (res) {
       ElMessage.success('修改成功！')
