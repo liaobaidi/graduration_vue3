@@ -19,6 +19,9 @@
     </div>
     <div class="w-1/2 bg-white h-1/2 p-4">
       <div class="text-center font-700" style="font-size: 1.2vw">公告</div>
+      <div v-if="!noticeList.length" class="flex justify-center w-full">
+        <el-empty description="暂时没有公告" />
+      </div>
       <div
         v-for="(item, index) in noticeList"
         :key="index"
@@ -31,7 +34,13 @@
         </div>
         <div class="ellipsis1 text-gray-500">{{ item.date }}</div>
       </div>
-      <div class="text-center text-blue-500 cursor-pointer" @click="router.push('/home/message/noticelist')">更多</div>
+      <div
+        v-if="noticeList.length === 11"
+        class="text-center text-blue-500 cursor-pointer"
+        @click="router.push('/home/message/noticelist')"
+      >
+        更多
+      </div>
     </div>
   </div>
 </template>
