@@ -53,7 +53,7 @@
             >修改</el-button
           >
           <div v-else>
-            <div v-if="+new Date(row.date) < +new Date()">
+            <div v-if="+new Date(row.date) > +new Date()">
               <el-button
                 v-if="showCommit(row)"
                 link
