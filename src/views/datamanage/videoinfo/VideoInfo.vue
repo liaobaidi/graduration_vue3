@@ -1,9 +1,9 @@
 <template>
   <div class="flex container">
     <div class="bg-white p-4 w-2/3">
-      <div class="w-full">
-        <div class="w-1/1">
-          <video style="width: 100%" controls :src="videoInfo.url"></video>
+      <div class="w-full h-1/1">
+        <div class="w-1/1 h-4/5">
+          <video style="width: 100%; height: 100%;" controls :src="videoInfo.url"></video>
         </div>
         <div class="name mt-4 ellipsis1" style="font-size: 1.2vw">{{ videoInfo.name }}</div>
         <div class="flex justify-between mt-4" style="font-size: 0.9vw; color: #333">
