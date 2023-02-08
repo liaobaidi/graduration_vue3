@@ -12,7 +12,7 @@
         </div>
         <div class="flex justify-between mt-4">
           <div></div>
-          <el-button link type="danger" @click="to_deleteVideo(videoInfo.id)">删除</el-button>
+          <el-button v-if="userInfo.identity === 'admin'" link type="danger" @click="to_deleteVideo(videoInfo.id)">删除</el-button>
         </div>
       </div>
     </div>
