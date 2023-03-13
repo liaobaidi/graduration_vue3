@@ -17,3 +17,9 @@ export interface AppointItem {
   time: string;
   course: string;
 }
+
+export interface AppointObj {
+  ID: string | number;
+  key: string;
+  appoint_count: number;
+}

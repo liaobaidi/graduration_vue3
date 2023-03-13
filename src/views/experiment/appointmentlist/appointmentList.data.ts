@@ -20,6 +20,11 @@ export const columns = [
     prop: 'course'
   },
   {
+    label: '预约台数',
+    align: 'center',
+    prop: 'appoint_count'
+  },
+  {
     label: '日期',
     align: 'center',
     prop: 'time'
@@ -32,5 +37,5 @@ export const courseList = {
   five: '第5节',
   six_seven: '6-7节',
   eight_nine: '8-9节',
-  ten_twi: '10-12节',
+  ten_twi: '10-12节'
 }
