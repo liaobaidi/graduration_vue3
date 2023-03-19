@@ -398,14 +398,6 @@ export const expandRoutes: ExpandRoute = {
             name: '/资料管理/视频详情'
           },
           component: () => import('/@/views/datamanage/videoinfo/VideoInfo.vue')
-        },
-        {
-          path: 'createfile',
-          name: 'createfile',
-          meta: {
-            name: '/资料管理/创建资料'
-          },
-          component: () => import('/@/views/datamanage/createfile/CreateFile.vue')
         }
       ]
     }
