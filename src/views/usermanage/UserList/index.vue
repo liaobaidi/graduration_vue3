@@ -192,6 +192,12 @@ function chooseFile() {
   input.onchange = () => {
     import_file.value = input.files![0]
     import_text.value = import_file.value!.name
+    const reg = /xls|xlsx|excel|csv/gi    
+    if (!reg.test(import_text.value.split('.').at(-1)!)) {
+      ElMessage.error('文件格式有误！请选择excel文件')
+      import_file.value = null
+      import_text.value = '请选择文件'
+    }
   }
 }
 
