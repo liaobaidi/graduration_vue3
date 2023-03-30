@@ -100,6 +100,22 @@ export const expandRoutes: ExpandRoute = {
             name: '/实验管理/实验列表'
           },
           component: () => import('/@/views/experiment/experiencelist/ExperienceList.vue')
+        },
+        {
+          path: 'courselist',
+          name: 'courselist',
+          meta: {
+            name: '/实验管理/课程列表',
+          },
+          component: () => import('/@/views/experiment/courselist/CourseList.vue')
+        },
+        {
+          path: 'signin',
+          name: 'signin',
+          meta: {
+            name: '/实验管理/上课签到',
+          },
+          component: () => import('/@/views/experiment/signin/SignIn.vue')
         }
       ]
     },
@@ -283,6 +299,22 @@ export const expandRoutes: ExpandRoute = {
             name: '/实验管理/实验列表'
           },
           component: () => import('/@/views/experiment/experiencelist/ExperienceList.vue')
+        },
+        {
+          path: 'courselist',
+          name: 'courselist',
+          meta: {
+            name: '/实验管理/课程列表',
+          },
+          component: () => import('/@/views/experiment/courselist/CourseList.vue')
+        },
+        {
+          path: 'signin',
+          name: 'signin',
+          meta: {
+            name: '/实验管理/上课签到',
+          },
+          component: () => import('/@/views/experiment/signin/SignIn.vue')
         }
       ]
     },
@@ -433,6 +465,22 @@ export const expandRoutes: ExpandRoute = {
             name: '/实验管理/实验列表'
           },
           component: () => import('/@/views/experiment/experiencelist/ExperienceList.vue')
+        },
+        {
+          path: 'courselist',
+          name: 'courselist',
+          meta: {
+            name: '/实验管理/课程列表',
+          },
+          component: () => import('/@/views/experiment/courselist/CourseList.vue')
+        },
+        {
+          path: 'signin',
+          name: 'signin',
+          meta: {
+            name: '/实验管理/上课签到',
+          },
+          component: () => import('/@/views/experiment/signin/SignIn.vue')
         }
       ]
     },

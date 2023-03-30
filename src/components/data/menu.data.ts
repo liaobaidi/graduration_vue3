@@ -35,6 +35,14 @@ export default {
         {
           path: '/home/experiment/experiencelist',
           name: '实验列表'
+        },
+        {
+          path: '/home/experiment/courselist',
+          name: '课程列表'
+        },
+        {
+          path: '/home/experiment/signin',
+          name: '上课签到'
         }
       ]
     },
@@ -125,6 +133,14 @@ export default {
         {
           path: '/home/experiment/experiencelist',
           name: '实验列表'
+        },
+        {
+          path: '/home/experiment/courselist',
+          name: '课程列表'
+        },
+        {
+          path: '/home/experiment/signin',
+          name: '上课签到'
         }
       ]
     },
@@ -205,6 +221,14 @@ export default {
         {
           path: '/home/experiment/experiencelist',
           name: '实验列表'
+        },
+        {
+          path: '/home/experiment/courselist',
+          name: '课程列表'
+        },
+        {
+          path: '/home/experiment/signin',
+          name: '上课签到'
         }
       ]
     },
