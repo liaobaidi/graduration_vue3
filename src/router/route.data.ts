@@ -149,6 +149,14 @@ export const expandRoutes: ExpandRoute = {
             name: '/信息管理/公告详情'
           },
           component: () => import('/@/views/message/noticeinfo/NoticeInfo.vue')
+        },
+        {
+          path: 'signincount',
+          name: 'signincount',
+          meta: {
+            name: '/信息管理/考勤统计'
+          },
+          component: () => import('/@/views/message/signincount/SigninCount.vue')
         }
       ]
     },
@@ -348,6 +356,14 @@ export const expandRoutes: ExpandRoute = {
             name: '/信息管理/公告详情'
           },
           component: () => import('/@/views/message/noticeinfo/NoticeInfo.vue')
+        },
+        {
+          path: 'signincount',
+          name: 'signincount',
+          meta: {
+            name: '/信息管理/考勤统计'
+          },
+          component: () => import('/@/views/message/signincount/SigninCount.vue')
         }
       ]
     },

@@ -9,6 +9,10 @@
       <div class="content mt-2">{{ my_info.info }}</div>
     </div>
     <div class="item mt-4">
+      <span class="label font-600">课程：</span>
+      <span class="content">{{ my_info.course_name }}</span>
+    </div>
+    <div class="item mt-4">
       <span class="label font-600">班级：</span>
       <span class="content">{{ my_info.class_view }}</span>
     </div>

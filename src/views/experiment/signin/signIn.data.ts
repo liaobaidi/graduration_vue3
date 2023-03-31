@@ -6,7 +6,7 @@ export const getTime = () => {
     return 'one_two'
   } else if (h >= 10 && h <= 11) {
     return 'three_four'
-  } else if (h >= 13 && h <= 14) {
+  } else if (h >= 13 && h < 14) {
     return 'five'
   } else if (h >= 14 && h <= 15) {
     return 'six_seven'

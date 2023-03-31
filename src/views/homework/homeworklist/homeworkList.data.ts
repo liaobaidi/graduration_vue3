@@ -5,6 +5,11 @@ export const columns = [
     prop: 'id'
   },
   {
+    label: '课程名称',
+    align: 'center',
+    prop: 'course_name'
+  },
+  {
     label: '标题',
     align: 'center',
     prop: 'title'

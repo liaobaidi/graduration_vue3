@@ -26,13 +26,18 @@
       </div>
     </div>
     <div class="item flex items-center mt-6 w-1/3">
+      <div class="label w-1/3">课程名称：</div>
+      <div class="content w-2/3">
+        <el-select v-model="myform.course_id" placeholder="请选择" class="w-1/1">
+          <el-option v-for="item in courseOption" :key="item.value" :label="item.label" :value="item.value" />
+        </el-select>
+      </div>
+    </div>
+    <div class="item flex items-center mt-6 w-1/3">
       <div class="label w-1/3">面向班级：</div>
       <div class="content w-2/3">
-        <el-select v-model="myform.class_id" placeholder="选择班级" class="w-1/1">
-          <el-option label="2019级信息与科学1班" :value="101" />
-          <el-option label="2019级信息与科学2班" :value="102" />
-          <el-option label="2019级信息与科学3班" :value="103" />
-          <el-option label="2019级信息与科学4班" :value="104" />
+        <el-select v-model="myform.class_id" placeholder="请选择" class="w-1/1">
+          <el-option v-for="item in classOption" :key="item.value" :label="item.label" :value="item.value"> </el-option>
         </el-select>
       </div>
     </div>
@@ -59,14 +64,37 @@ import { MyForm } from './createHomework'
 import { getHomeworkDetail, uploadFile, saveOrUpdate } from './createHomework.api'
 import { useRoute, useRouter } from 'vue-router'
 import { dayjs, ElMessage } from 'element-plus'
+import { getCourseListTeach } from '../../message/signincount/signinCount.api'
+import { getClassList } from '/@/api/common'
 
 const route = useRoute()
 const router = useRouter()
 const myform: Partial<MyForm> = reactive({})
 const file: Ref<File | null> = ref(null)
+const courseOption: CourseOption[] = reactive([])
+const classOption: CourseOption[] = reactive([])
 
 if (route.query.id) {
   getDetail()
+}
+getClass()
+getCourse()
+
+function getClass() {
+  getClassList().then((res: any) => {
+    classOption.length = 0
+    classOption.push(...res)
+  })
+}
+
+function getCourse() {
+  const postData = {
+    teacher_id: JSON.parse(localStorage.getItem('userinfo')!).account
+  }
+  getCourseListTeach(postData).then((res: any) => {
+    courseOption.length = 0
+    courseOption.push(...res)
+  })
 }
 
 function getDetail() {
@@ -92,7 +120,6 @@ function uploadProtocol() {
       ElMessage.success('上传成功！')
     })
   }
-  input.on
 }
 
 function toPublish() {

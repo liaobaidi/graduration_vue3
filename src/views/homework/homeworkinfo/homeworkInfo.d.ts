@@ -7,4 +7,5 @@ export interface DataItem {
   score: string;
   desc: string;
   info: string;
+  course_name: string;
 }

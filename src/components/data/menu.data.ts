@@ -53,6 +53,10 @@ export default {
         {
           path: '/home/message/noticelist',
           name: '公告列表'
+        },
+        {
+          path: '/home/message/signincount',
+          name: '考勤统计'
         }
       ]
     },

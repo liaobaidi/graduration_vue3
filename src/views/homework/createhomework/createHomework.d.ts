@@ -6,4 +6,5 @@ export interface MyForm {
   class_id: number;
   account: string;
   date: string;
+  course_id: string;
 }
