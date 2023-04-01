@@ -75,6 +75,10 @@ export default {
         {
           path: '/home/homework/checkhomework',
           name: '批改作业'
+        },
+        {
+          path: '/home/homework/homeworkcount',
+          name: '作业统计'
         }
       ]
     },
@@ -173,6 +177,10 @@ export default {
         {
           path: '/home/homework/checkhomework',
           name: '批改作业'
+        },
+        {
+          path: '/home/homework/homeworkcount',
+          name: '作业统计'
         }
       ]
     },

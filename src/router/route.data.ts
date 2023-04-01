@@ -198,6 +198,14 @@ export const expandRoutes: ExpandRoute = {
             name: '/作业管理/作业详情（批改）'
           },
           component: () => import('/@/views/homework/homeworkinfo/HomeworkInfo.vue')
+        },
+        {
+          path: 'homeworkcount',
+          name: 'homeworkcount',
+          meta: {
+            name: '/作业管理/作业统计'
+          },
+          component: () => import('/@/views/homework/homeworkcount/HomeworkCount.vue')
         }
       ]
     },
@@ -405,6 +413,14 @@ export const expandRoutes: ExpandRoute = {
             name: '/作业管理/作业详情（批改）'
           },
           component: () => import('/@/views/homework/homeworkinfo/HomeworkInfo.vue')
+        },
+        {
+          path: 'homeworkcount',
+          name: 'homeworkcount',
+          meta: {
+            name: '/作业管理/作业统计'
+          },
+          component: () => import('/@/views/homework/homeworkcount/HomeworkCount.vue')
         }
       ]
     },
