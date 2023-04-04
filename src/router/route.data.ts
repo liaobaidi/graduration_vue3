@@ -157,6 +157,22 @@ export const expandRoutes: ExpandRoute = {
             name: '/信息管理/考勤统计'
           },
           component: () => import('/@/views/message/signincount/SigninCount.vue')
+        },
+        {
+          path: 'terminalcount',
+          name: 'terminalcount',
+          meta: {
+            name: '/信息管理/期末评分'
+          },
+          component: () => import('/@/views/message/terminalcount/TerminalCount.vue')
+        },
+        {
+          path: 'gradecount',
+          name: 'gradecount',
+          meta: {
+            name: '/信息管理/成绩统计'
+          },
+          component: () => import('/@/views/message/gradecount/GradeCount.vue')
         }
       ]
     },
@@ -372,6 +388,22 @@ export const expandRoutes: ExpandRoute = {
             name: '/信息管理/考勤统计'
           },
           component: () => import('/@/views/message/signincount/SigninCount.vue')
+        },
+        {
+          path: 'terminalcount',
+          name: 'terminalcount',
+          meta: {
+            name: '/信息管理/期末评分'
+          },
+          component: () => import('/@/views/message/terminalcount/TerminalCount.vue')
+        },
+        {
+          path: 'gradecount',
+          name: 'gradecount',
+          meta: {
+            name: '/信息管理/成绩统计'
+          },
+          component: () => import('/@/views/message/gradecount/GradeCount.vue')
         }
       ]
     },
@@ -538,6 +570,14 @@ export const expandRoutes: ExpandRoute = {
             name: '/信息管理/公告详情'
           },
           component: () => import('/@/views/message/noticeinfo/NoticeInfo.vue')
+        },
+        {
+          path: 'gradecountstu',
+          name: 'gradecountstu',
+          meta: {
+            name: '/信息管理/成绩统计'
+          },
+          component: () => import('/@/views/message/gradecountstu/GradeCountStu.vue')
         }
       ]
     },

@@ -57,6 +57,14 @@ export default {
         {
           path: '/home/message/signincount',
           name: '考勤统计'
+        },
+        {
+          path: '/home/message/terminalcount',
+          name: '期末评分'
+        },
+        {
+          path: '/home/message/gradecount',
+          name: '成绩统计'
         }
       ]
     },
@@ -159,6 +167,18 @@ export default {
         {
           path: '/home/message/noticelist',
           name: '公告列表'
+        },
+        {
+          path: '/home/message/signincount',
+          name: '考勤统计'
+        },
+        {
+          path: '/home/message/terminalcount',
+          name: '期末评分'
+        },
+        {
+          path: '/home/message/gradecount',
+          name: '成绩统计'
         }
       ]
     },
@@ -251,6 +271,10 @@ export default {
         {
           path: '/home/message/noticelist',
           name: '公告列表'
+        },
+        {
+          path: '/home/message/gradecountstu',
+          name: '成绩统计'
         }
       ]
     },
