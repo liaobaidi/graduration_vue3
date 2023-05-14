@@ -215,6 +215,7 @@ const toExport = () => {
 }
 
 function getGrade() {
+  loading.value = true
   const postData = {
     page: currentPage.value,
     pageSize: pageSize.value,
@@ -224,6 +225,8 @@ function getGrade() {
   getTerminalCount(postData).then((res: any) => {
     dataSource.length = 0
     dataSource.push(...res.items)
+    loading.value = false
+    total.value = res.total
   })
 }
 
