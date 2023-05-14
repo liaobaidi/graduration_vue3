@@ -11,9 +11,9 @@
       </div>
       <div class="flex items-center">
         <div class="flex items-center mr-4">
-          <el-icon class="cursor-pointer"><ArrowLeft /></el-icon>
+          <el-icon class="cursor-pointer" @click="nextPage(-1)"><ArrowLeft /></el-icon>
           <span class="mr-4 ml-4">第 {{ currentPage }} 页</span>
-          <el-icon class="cursor-pointer"><ArrowRight /></el-icon>
+          <el-icon class="cursor-pointer" @click="nextPage(1)"><ArrowRight /></el-icon>
         </div>
         <div>共 {{ total }} 条数据</div>
       </div>
@@ -60,11 +60,24 @@ const loading = ref(false)
 const currentPage = ref(1)
 const pageSize = ref(10)
 const total = ref(0)
+const maxPage = ref(0)
 const dataSource: VideoList[] = reactive([])
 const keyWord = ref('')
 const identity = JSON.parse(localStorage.getItem('userinfo')!).identity
 
 getList()
+
+function nextPage(num: number) {
+  if(num === -1) {
+    if(currentPage.value === 1) return
+    currentPage.value--
+    getList()
+  } else {
+    if(currentPage.value >= maxPage.value) return
+    currentPage.value++
+    getList()
+  }
+}
 
 function getList() {
   loading.value = true
@@ -78,6 +91,7 @@ function getList() {
     dataSource.length = 0
     dataSource.push(...res.items)
     loading.value = false
+    maxPage.value = res.maxPage
   })
 }
 </script>

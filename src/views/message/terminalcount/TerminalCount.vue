@@ -88,10 +88,12 @@ const showChange = ref(false)
 
 init()
 
-const reset = () => {
+const reset = (done?: Function) => {
   Object.keys(currentStudent).forEach(key => {
     currentStudent[key] = ''
   })
+  done && done()
+  console.log("reset", currentStudent);
 }
 
 const toOrder = (row: DataItem) => {
@@ -132,6 +134,7 @@ function changeGrade() {
   changeTerminalGrade(postData).then(res => {
     if (res) {
       ElMessage.success('success')
+      reset()
       showChange.value = false
       getGrade()
     }

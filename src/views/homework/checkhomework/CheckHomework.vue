@@ -73,6 +73,7 @@ const doneList: DoneItem[] = reactive([])
 getDone()
 
 function getDone() {
+  loading.value = true
   const postData = {
     page: currentPage.value,
     pageSize: pageSize.value,
@@ -82,6 +83,8 @@ function getDone() {
   getDoneList(postData).then((res: any) => {
     doneList.length = 0
     doneList.push(...res.items)
+    total.value = res.total
+    loading.value = false
   })
 }
 </script>
